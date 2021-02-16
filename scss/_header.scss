@@ -1,0 +1,105 @@
+.header {
+    z-index: 100;
+
+    &.open {
+        .header__mobile__menu {
+            top: 6rem;
+        }
+    }
+
+    nav {
+        position: relative;
+        height: 6rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__logo {
+        img {
+            width: 180px;
+        }
+    }
+
+    &__mobile__menu {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: $white;
+        padding: 2rem 0;
+        font-size: map-get($font-size, 'md');
+        border-radius: .5em;
+        transition: .5s;
+        z-index: 100;
+
+        a {
+            color: $darkBlue;
+            font-weight: map-get($font-weight, bold);
+
+            &:not(:last-child) {
+                margin-bottom: 2rem;
+            }
+        }
+    }
+
+    &__desktop__menu {
+        display: flex;
+
+        li {
+            a {
+                color: $veryDarkBlue;
+                transition: .3s;
+
+                &:hover {
+                    color: $darkGrayishBlue;
+                }
+            }
+
+            &:not(:last-child) {
+                margin-right: 1rem;
+            }
+        }
+    }
+
+    &__toggle {
+        background: none;
+        border: none;
+        outline: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        width: 30px;
+        height: 20px;
+
+        >span {
+            width: 100%;
+            height: 3px;
+            background-color: $darkBlue;
+            transition: .4s;
+        }
+
+        &.active {
+            >span {
+                transform-origin: 5px 2px;
+
+                &:nth-child(1) {
+                    transform: rotate(45deg) translate(1px, 1px);
+                }
+
+                &:nth-child(2) {
+                    transform: scaleX(0);
+                }
+
+                &:nth-child(3) {
+                    transform: rotate(-45deg) translate(1px, -1px);
+                }
+            }
+        }
+    }
+}

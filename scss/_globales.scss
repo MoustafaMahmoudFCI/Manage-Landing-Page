@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam:wght@400;500;700&display=swap');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Be Vietnam', sans-serif;
+    font-size: map-get($font-size, md);
+    font-weight: map-get($font-weight, medium);
+    color: $darkGrayishBlue;
+    line-height: 1.4;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+// heading
+h1,
+h2,
+h3 {
+    color: $darkBlue;
+}
+
+// general layouts
+.btn {
+    display: inline-block;
+    padding: 1em 2em;
+    border: none;
+    border-radius: 2em;
+    background-color: $brightRed;
+    color: $white;
+    font-weight: map-get($font-weight, bold);
+    text-transform: capitalize;
+    box-shadow: 0 4px 10px rgba($brightRed, .6);
+    cursor: pointer;
+    transition: background-color 250ms ease-in-out;
+
+    &:hover {
+        background-color: rgba($brightRed, .8);
+    }
+}
+
+.container {
+    margin: 0 auto;
+
+    @include media-breakpoints-down(sm) {
+        padding: 0 1.5rem;
+    }
+
+    @include media-breakpoints-up(sm) {
+        max-width: map-get($container-max-widths, sm);
+    }
+
+    @include media-breakpoints-up(md) {
+        max-width: map-get($container-max-widths, md);
+    }
+
+    @include media-breakpoints-up(lg) {
+        max-width: map-get($container-max-widths, lg);
+    }
+
+    @include media-breakpoints-up(xl) {
+        max-width: map-get($container-max-widths, xl);
+    }
+
+    @include media-breakpoints-up(xxl) {
+        max-width: map-get($container-max-widths, xxl);
+    }
+
+}
+
+.hide-for-desktop {
+    @include media-breakpoints-down(lg) {
+        display: none !important;
+    }
+}
+
+.hide-for-mobile {
+    @include media-breakpoints-up(lg) {
+        display: none !important;
+    }
+}
+
+.overlay {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(to bottom, $darkGrayishBlue, $veryLightGray);
+    @include fade(hide);
+}
+
+.fade-out {
+    @include fade(show);
+}

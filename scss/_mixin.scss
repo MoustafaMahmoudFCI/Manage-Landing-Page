@@ -1,0 +1,25 @@
+@mixin fade($type) {
+    @if $type=="hide" {
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 1s, opacity 1s;
+    }
+
+    @else if $type=="show" {
+        visibility: visible;
+        opacity: 1;
+        transition: visibility 1s, opacity 1s;
+    }
+}
+
+@mixin media-breakpoints-up($size) {
+    @media (min-width: map-get($grid-breakpoints-up, $size)) {
+        @content;
+    }
+}
+
+@mixin media-breakpoints-down($size) {
+    @media (max-width:map-get($grid-breakpoints-down, $size)) {
+        @content;
+    }
+}
